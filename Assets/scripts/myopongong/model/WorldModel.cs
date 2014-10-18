@@ -8,6 +8,6 @@ public class WorldModel : IWorldModel{
     public WorldModel()
 	{
         Debug.Log("WorldModel Constructor");
-        size = new Vector3(10, 10, 40);
+        size = new Vector3(10, 10, 60);
 	}
 }
