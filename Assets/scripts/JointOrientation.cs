@@ -30,8 +30,9 @@ public class JointOrientation : MonoBehaviour
     // Update is called once per frame.
     void Update ()
     {
+        Debug.Log("Update");
         // Access the ThalmicMyo component attached to the Myo object.
-        ThalmicMyo thalmicMyo = myo.GetComponent<ThalmicMyo> ();
+        ThalmicMyo thalmicMyo = myo.GetComponent<ThalmicMyo>();
 
         // Update references when the pose becomes fingers spread or the q key is pressed.
         bool updateReference = false;

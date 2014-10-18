@@ -25,22 +25,32 @@ public class StartCommand : Command
         wv.name = "WorldView";
         wv.AddComponent<WorldView>();
 
+        GameObject player = new GameObject();
+        player.name = "Player";
+        player.AddComponent<Player1View>();
+        player.transform.position = new Vector3(0, 0, -model.size.z / 2);
+
+        GameObject myo = GameObject.Find("MyoArm");
+        myo.transform.position = new Vector3(0, 0, -model.size.z / 2);
+
         GameObject cv = (GameObject)GameObject.Instantiate(Resources.Load("CameraView"));
         cv.name = "CameraView";
         cv.AddComponent<CameraView>();
-        cv.transform.position = new Vector3(0, 0, -5);
-        cv.transform.position = new Vector3(0, 0, -model.size.z / 2 - 10);
+        cv.transform.position = new Vector3(0, 0, -model.size.z/2 - 10);
 
-        GameObject p1barrier = (GameObject)GameObject.Instantiate(Resources.Load("PlayerBarrier"));
-        p1barrier.name = "Player1Barrier";
-        p1barrier.AddComponent<Player1BarrierView>();
-        p1barrier.transform.position = new Vector3(0, 0, 0);
-        p1barrier.transform.position = new Vector3(0, 0, -model.size.z / 2);
+        GameObject surface = GameObject.Find("Surface");
+        surface.transform.position = new Vector3(0, 0, -model.size.z / 2 + 10);
 
-        GameObject p2barrier = (GameObject)GameObject.Instantiate(Resources.Load("PlayerBarrier"));
-        p2barrier.name = "Player2Barrier";
-        p2barrier.AddComponent<Player2BarrierView>();
-        p2barrier.transform.position = new Vector3(0, 0, model.size.z / 2);
+        //GameObject p1barrier = (GameObject)GameObject.Instantiate(Resources.Load("PlayerBarrier"));
+        //p1barrier.name = "Player1Barrier";
+        //p1barrier.AddComponent<Player1BarrierView>();
+        //p1barrier.transform.position = new Vector3(0, 0, 0);
+        //p1barrier.transform.position = new Vector3(0, 0, -model.size.z / 2);
+
+        //GameObject p2barrier = (GameObject)GameObject.Instantiate(Resources.Load("PlayerBarrier"));
+        //p2barrier.name = "Player2Barrier";
+        //p2barrier.AddComponent<Player2BarrierView>();
+        //p2barrier.transform.position = new Vector3(0, 0, model.size.z / 2);
     }
 }
 

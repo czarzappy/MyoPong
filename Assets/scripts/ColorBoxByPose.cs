@@ -28,14 +28,11 @@ public class ColorBoxByPose : MonoBehaviour
     void FixedUpdate ()
     {
         // Access the ThalmicMyo component attached to the Myo game object.
-		ThalmicMyo thalmicMyo = myo.GetComponent<ThalmicMyo> ();
+        ThalmicMyo thalmicMyo = myo.GetComponent<ThalmicMyo>();
 		GameObject surface = GameObject.Find("Surface");
-
-		float box_horizontal_pos = this.transform.position.x;
-		float box_vertical_pos = this.transform.position.y;
 		
 		// update x and y of shield pos rel to box s.t. shield moves w/ box
-		surface.transform.position = new Vector3(box_horizontal_pos, box_vertical_pos, surface.transform.position.z);
+		surface.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, surface.transform.position.z);
 
         // Check if the pose has changed since last update.
         // The ThalmicMyo component of a Myo game object has a pose property that is set to the
@@ -46,7 +43,7 @@ public class ColorBoxByPose : MonoBehaviour
             _lastPose = thalmicMyo.pose;
 
             // Vibrate the Myo armband when a fist is made.
-			if (thalmicMyo.pose == Pose.FingersSpread) {
+			if (thalmicMyo.pose == Pose.FingersSpread || thalmicMyo.pose == Pose.WaveOut) {
 				//deltaT = 0;
 				//GameObject cube = GameObject.Find("");
 				// turn on the shields
