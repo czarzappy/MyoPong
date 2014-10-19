@@ -33,7 +33,7 @@ public class StartCommand : Command
         GameObject myo = GameObject.Find("MyoArm");
         myo.transform.position = new Vector3(0, 0, -model.size.z / 2);
 
-        GameObject cv = (GameObject)GameObject.Instantiate(Resources.Load("CameraView"));
+        GameObject cv = (GameObject)GameObject.Instantiate(Resources.Load("OVRCameraController"));
         cv.name = "CameraView";
         cv.AddComponent<CameraView>();
         cv.transform.position = new Vector3(0, 0, -model.size.z/2 - 10);
